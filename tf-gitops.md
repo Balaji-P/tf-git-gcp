@@ -43,7 +43,7 @@
 
 ## Модули
 
-Пока цели вынести [модули](https://www.terraform.io/docs/configuration/modules.html) в отдельный проект нет, но всесте с тем это позволит структурировать код и леи  Храним все в одной репе. 
+Пока цели вынести [модули](https://www.terraform.io/docs/configuration/modules.html) в отдельный проект нет, но всесте с тем это позволит структурировать код.  Храним все в одной репе. 
 
     project/     # Global project settings
       main.tf
