@@ -54,17 +54,24 @@
 - `staging` – при пуше в `staging`.
 - review-xxx – создается динамически при необходимости развернуть review окружение для задачи. После удаляется.
 
-## Модули
+## Структура проекта
 
 Пока цели вынести [модули](https://www.terraform.io/docs/configuration/modules.html) в отдельный проект нет, но всесте с тем это позволит структурировать код.  Храним все в одной репе. 
 
-    project/     # Global project settings
-      main.tf
-    modules/
-      services/  # GCP enabled API services
-      iam/       # IAM policy
-      vpc/       # Network for environment
-      gke/       # Kubernetes
-      sql/       # Cloud SQL
-    env/
-      main.tf    # Environment
+```
+global/
+  project/     # Global GCP project settings (global workspace)
+    main.tf
+modules/
+  gcp/
+    services/  # GCP enabled API services
+    iam/       # IAM policy
+    vpc/       # VPC Network
+    gke/       # Kubernetes
+    sql/       # Cloud SQL
+services/
+  comments/
+    main.tf    # Environment    (production & qa workspace)
+      module "gke" ...
+      module "sql" ... 
+```
